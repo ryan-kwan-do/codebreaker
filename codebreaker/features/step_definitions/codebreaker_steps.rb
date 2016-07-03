@@ -21,7 +21,11 @@ When /^I start a new game$/ do
 end
 
 Then /^Then I should see "([^"]*)"$/ do |message|
-  expect(@messenger.string.split("\n")).to include(message)
+  expect(s_output).to include(message)
+end
+
+Then /^I should see "([^"]*)"$/ do |greet|
+ expect(s_output.messages).to include(greet)
 end
 
 Given /^the secret code is "([^"]*)"$/ do |secret|

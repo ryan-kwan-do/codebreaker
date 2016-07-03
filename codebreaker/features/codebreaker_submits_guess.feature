@@ -4,6 +4,8 @@ Feature: code-breaker submits guess
 
   For each number in the guess that matches the number and position of a number in the secret code, the mark includes one + sign. For each number in the guess that matches the number but not the position of a number in the secret code, the mark includes one - sign.
 
+  One number counts for one match, so if a codebreaker guesses a certain number that is a number match twice, only the first is counted.
+
   Scenario Outline: submit guess
     Given the secret code is "<code>"
     When I guess "<guess>"
@@ -36,3 +38,11 @@ Feature: code-breaker submits guess
 	| 1234 | 1243 | ++-- |
 	| 1234 | 1423 | +--- |
 	| 1234 | 4321 | ---- |
+
+  Scenarios: more than one match
+	| code | guess | mark |
+	| 1234 | 1155 | +    |
+	| 1234 | 5115 | -    |
+	| 1234 | 1322 | +-   |
+	| 1234 | 1233 | +++  |
+	| 1234 | 2245 | +--  |
