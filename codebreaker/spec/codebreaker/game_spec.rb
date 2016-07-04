@@ -12,24 +12,24 @@ module Codebreaker
       end
     end
 
-    describe "#game_type" do
-      context "codebreaker selects computer to play" do
-        it "sends a message to codebreaker that ai starts" do
-          game.game_type('y')
-          s_output.should_receive(:puts).with('Here we go!')
-        end
-        it "creates a computer player" do
-          game.game_type('y')
-          game.start('1234')
-          computer.first_guess == '1111'
-        end
+    describe "#computer_plays" do
+      it "sends a message to codebreaker that ai starts" do
+        game.start('1234')
+        s_output.should_receive(:puts).with('Here we go!')
+        game.computer_plays
       end
+      it "sends an output with the computer guess" do
+        game.start('1234')
+        s_output.should_receive(:puts).with('+')
+        game.computer_plays
+      end
+      it "keeps sending guesses until the code is broken"
+    end    
 
-      context 'codebreaker selects to play' do
-        it "sends a message and prompts for guess" do
-          s_output.should_receive(:puts).with('Enter guess:')
-          game.game_type('n')
-        end
+    describe '#human_plays' do
+      it "sends a message and prompts for guess" do
+        s_output.should_receive(:puts).with('Enter guess:')
+        game.human_plays
       end
     end
 

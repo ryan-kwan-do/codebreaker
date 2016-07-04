@@ -1,6 +1,9 @@
 module Codebreaker
   class Ai
-  	def initialize
+  	def initialize(secret)
+  	  @secret = secret
   	end
+
+
   end
 end
