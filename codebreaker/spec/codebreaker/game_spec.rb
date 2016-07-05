@@ -23,8 +23,7 @@ module Codebreaker
         s_output.should_receive(:puts).with('+')
         game.computer_plays
       end
-      it "keeps sending guesses until the code is broken"
-    end    
+    end 
 
     describe '#human_plays' do
       it "sends a message and prompts for guess" do

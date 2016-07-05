@@ -12,11 +12,13 @@ module Codebreaker
 
     def computer_plays 
         @output.puts 'Here we go!'
-        computer_guess
+        @computer = Ai.new(@secret)
+        computer_guesses
     end
 
-    def computer_guess
-      guess('1111')
+    def computer_guesses
+      guess(@computer.computer_guess)
+      @output.puts(@computer.computer_guess).to_s
     end
 
     def human_plays
