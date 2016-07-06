@@ -23,13 +23,9 @@ module Codebreaker
       	  game.computer_plays
       	end
  	  end
-
+ 	end
+ 	describe '#guess_again' do
       context 'computer guesses first number incorrectly' do
-      	it 'increases the guess of the first digit by 1' do
-      	  game.start('2234')
-          game.computer_plays
-          expect(computer.computer_guess).to eql('2111')
-        end
       	it 'sends an output of the new guess' do
       	  game.start('2234')
           expect(s_output).to receive(:puts).with('2111')

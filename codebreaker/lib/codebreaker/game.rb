@@ -17,8 +17,11 @@ module Codebreaker
     end
 
     def computer_guesses
+      while @computer.computer_guess != @secret
       guess(@computer.computer_guess)
       @output.puts(@computer.computer_guess).to_s
+      @computer.guess_again
+      end
     end
 
     def human_plays

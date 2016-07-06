@@ -10,7 +10,15 @@ module Codebreaker
   	end
 
   	def guess_again
-  	  #should increment @computer_guess
+  	  #runs in bin/codebreaker until code is solved
+  	  secret = @secret.split('')
+  	  guess = @computer_guess.split('')
+  	  guess.each_with_index do |number, index|
+  	  	if number != secret[index]
+  	  	  @computer_guess[index] = (number.to_i + 1).to_s
+  	  	  break
+  	  	end
+  	  end
   	end
 
   end
